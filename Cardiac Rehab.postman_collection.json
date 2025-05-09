@@ -1,0 +1,3618 @@
+{
+	"info": {
+		"_postman_id": "dfb427aa-d893-40e6-b846-f2a0791fa4f0",
+		"name": "Cardiac Rehab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11477710"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "workouts",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get Workout By Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/workouts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/workouts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workouts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete Workout",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/workouts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/workouts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"workouts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get All Workouts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/workouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"workouts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/workouts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workouts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": \"<string>\",\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<string>\",\n    \"videoUrl\": \"<string>\",\n    \"difficulty\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"patientNote\": \"<string>\",\n    \"alternateExerciseId\": \"<long>\",\n    \"sets\": \"<integer>\",\n    \"reps\": \"<integer>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<string>\",\n    \"videoUrl\": \"<string>\",\n    \"difficulty\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"patientNote\": \"<string>\",\n    \"alternateExerciseId\": \"<long>\",\n    \"sets\": \"<integer>\",\n    \"reps\": \"<integer>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "update Workout",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/workouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"workouts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/workouts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workouts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create Workout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/workouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"workouts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/workouts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workouts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"difficulty\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"patientNote\": \"<string>\",\n  \"alternateExerciseId\": \"<long>\",\n  \"sets\": \"<integer>\",\n  \"reps\": \"<integer>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "search By Name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/workouts/search?name=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"workouts",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/workouts/search?name=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"workouts",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"name\": \"<string>\",\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<string>\",\n    \"videoUrl\": \"<string>\",\n    \"difficulty\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"patientNote\": \"<string>\",\n    \"alternateExerciseId\": \"<long>\",\n    \"sets\": \"<integer>\",\n    \"reps\": \"<integer>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"id\": \"<long>\",\n    \"description\": \"<string>\",\n    \"imageUrl\": \"<string>\",\n    \"videoUrl\": \"<string>\",\n    \"difficulty\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"patientNote\": \"<string>\",\n    \"alternateExerciseId\": \"<long>\",\n    \"sets\": \"<integer>\",\n    \"reps\": \"<integer>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "doctors",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get Doctor By Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/doctors/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"doctors",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "update Doctor",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/doctors/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"doctors",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "delete Doctor",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/doctors/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"doctors",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "update Availability",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n  {\n    \"id\": \"<long>\",\n    \"dayOfWeek\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"endTime\": \"<string>\",\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"<long>\",\n    \"dayOfWeek\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"endTime\": \"<string>\",\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        }\n      ]\n    }\n  }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/:id/availability",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												":id",
+												"availability"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "[\n  {\n    \"id\": \"<long>\",\n    \"dayOfWeek\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"endTime\": \"<string>\",\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"<long>\",\n    \"dayOfWeek\": \"<string>\",\n    \"startTime\": \"<string>\",\n    \"endTime\": \"<string>\",\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n        }\n      ]\n    }\n  }\n]",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/doctors/:id/availability",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"doctors",
+														":id",
+														"availability"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "updateCurrentUserPlan",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": 1,\n  \"planName\": \"Level 2 Updated\",\n  \"doctorNote\": \"I have removed one exercise.\",\n  \"workoutIds\": [\n    9, 10, 3\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/:id/updateCurrentUserPlan",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												":id",
+												"updateCurrentUserPlan"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "get All Doctors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/doctors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"doctors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "create Doctor",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Emily\",\n  \"lastName\": \"Clark\",\n  \"email\": \"emily.clark@example.com\",\n  \"phone\": \"+64 21 123 4567\",\n  \"specialization\": \"Cardiologist\",\n  \"emergencyContact\": \"+64 22 987 6543\",\n  \"availabilities\": [\n    {\n      \"dayOfWeek\": \"Monday\",\n      \"startTime\": \"09:00\",\n      \"endTime\": \"17:00\"\n    },\n    {\n      \"dayOfWeek\": \"Wednesday\",\n      \"startTime\": \"10:00\",\n      \"endTime\": \"16:00\"\n    },\n    {\n      \"dayOfWeek\": \"Friday\",\n      \"startTime\": \"08:30\",\n      \"endTime\": \"14:30\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/doctors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"doctors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get Doctors By Specialization",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/doctors/specialization/:specialization",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"doctors",
+										"specialization",
+										":specialization"
+									],
+									"variable": [
+										{
+											"key": "specialization",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/specialization/:specialization",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												"specialization",
+												":specialization"
+											],
+											"variable": [
+												{
+													"key": "specialization",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "search Doctors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/doctors/search/:name",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"doctors",
+										"search",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/search/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												"search",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "name",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "get Available Doctors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/doctors/available?start=<string>&end=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"doctors",
+										"available"
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": "<string>",
+											"description": "(Required) "
+										},
+										{
+											"key": "end",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/doctors/available?start=<string>&end=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"doctors",
+												"available"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "<string>"
+												},
+												{
+													"key": "end",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "bookings",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get Booking By Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "update Booking",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete Booking",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "reschedule Booking",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/:id/reschedule",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												":id",
+												"reschedule"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"startTime\": \"<dateTime>\",\n  \"endTime\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/:id/reschedule",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														":id",
+														"reschedule"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "cancel Booking",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/:id/cancel",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												":id",
+												"cancel"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/:id/cancel",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														":id",
+														"cancel"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "user/{userId}",
+							"item": [
+								{
+									"name": "get Bookings By User",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/user/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												"user",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/user/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														"user",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  }\n]"
+										}
+									]
+								},
+								{
+									"name": "get Unpaid Bookings",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/user/:userId/unpaid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												"user",
+												":userId",
+												"unpaid"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/bookings/user/:userId/unpaid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"bookings",
+														"user",
+														":userId",
+														"unpaid"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get All Bookings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "create Booking",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"doctor\": {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"specialization\": \"<string>\",\n    \"emergencyContact\": \"<string>\",\n    \"availabilities\": [\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      },\n      {\n        \"id\": \"<long>\",\n        \"dayOfWeek\": \"<string>\",\n        \"startTime\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"doctor\": {\n          \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n        }\n      }\n    ]\n  },\n  \"timeSlot\": {\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\"\n  },\n  \"price\": \"<float>\",\n  \"status\": \"<integer>\",\n  \"remark\": \"<string>\",\n  \"paid\": \"<boolean>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "get Bookings By Status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings/status/:status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings",
+										"status",
+										":status"
+									],
+									"variable": [
+										{
+											"key": "status",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/status/:status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												"status",
+												":status"
+											],
+											"variable": [
+												{
+													"key": "status",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "get Bookings By Doctor",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings/doctor/:doctorId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings",
+										"doctor",
+										":doctorId"
+									],
+									"variable": [
+										{
+											"key": "doctorId",
+											"value": "<long>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/doctor/:doctorId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												"doctor",
+												":doctorId"
+											],
+											"variable": [
+												{
+													"key": "doctorId",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "get Bookings By Date",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings/date?start=<dateTime>&end=<dateTime>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings",
+										"date"
+									],
+									"query": [
+										{
+											"key": "start",
+											"value": "<dateTime>",
+											"description": "(Required) "
+										},
+										{
+											"key": "end",
+											"value": "<dateTime>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/date?start=<dateTime>&end=<dateTime>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												"date"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "end",
+													"value": "<dateTime>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"age\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"weight\": \"<float>\",\n      \"medicalRecords\": {\n        \"id\": \"<long>\",\n        \"lvef\": \"<integer>\",\n        \"nyhaClass\": \"<string>\",\n        \"hypertensionUpper\": \"<integer>\",\n        \"hypertensionLower\": \"<integer>\",\n        \"cholesterolLevel\": \"<double>\",\n        \"oxygenSaturation\": \"<integer>\",\n        \"smokingHistory\": \"<string>\",\n        \"diabetes\": \"<double>\",\n        \"exerciseTolerance\": \"<double>\",\n        \"cardiacEventType\": \"<string>\",\n        \"dateOfLastCardiacEvent\": \"<date>\",\n        \"alcoholIntake\": \"<string>\",\n        \"physicalActivityBeforeEvent\": \"<string>\",\n        \"cardiacError\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"doctor\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"specialization\": \"<string>\",\n      \"emergencyContact\": \"<string>\",\n      \"availabilities\": [\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        },\n        {\n          \"id\": \"<long>\",\n          \"dayOfWeek\": \"<string>\",\n          \"startTime\": \"<string>\",\n          \"endTime\": \"<string>\",\n          \"doctor\": {\n            \"value\": \"<Circular reference to #/components/schemas/Doctor detected>\"\n          }\n        }\n      ]\n    },\n    \"timeSlot\": {\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\"\n    },\n    \"price\": \"<float>\",\n    \"status\": \"<integer>\",\n    \"remark\": \"<string>\",\n    \"paid\": \"<boolean>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "is Time Slot Taken",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/bookings/check-slot?doctorId=<long>&start=<dateTime>&end=<dateTime>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"bookings",
+										"check-slot"
+									],
+									"query": [
+										{
+											"key": "doctorId",
+											"value": "<long>",
+											"description": "(Required) "
+										},
+										{
+											"key": "start",
+											"value": "<dateTime>",
+											"description": "(Required) "
+										},
+										{
+											"key": "end",
+											"value": "<dateTime>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/bookings/check-slot?doctorId=<long>&start=<dateTime>&end=<dateTime>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"bookings",
+												"check-slot"
+											],
+											"query": [
+												{
+													"key": "doctorId",
+													"value": "<long>"
+												},
+												{
+													"key": "start",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "end",
+													"value": "<dateTime>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "<boolean>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get User",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"height\": \"<float>\",\n  \"weight\": \"<float>\",\n  \"medicalRecords\": {\n    \"id\": \"<long>\",\n    \"lvef\": \"<integer>\",\n    \"nyhaClass\": \"<string>\",\n    \"hypertensionUpper\": \"<integer>\",\n    \"hypertensionLower\": \"<integer>\",\n    \"cholesterolLevel\": \"<double>\",\n    \"oxygenSaturation\": \"<integer>\",\n    \"smokingHistory\": \"<string>\",\n    \"diabetes\": \"<double>\",\n    \"exerciseTolerance\": \"<double>\",\n    \"cardiacEventType\": \"<string>\",\n    \"dateOfLastCardiacEvent\": \"<date>\",\n    \"alcoholIntake\": \"<string>\",\n    \"physicalActivityBeforeEvent\": \"<string>\",\n    \"cardiacError\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "delete User",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<object>"
+										}
+									]
+								},
+								{
+									"name": "update User",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"height\": \"<float>\",\n  \"weight\": \"<float>\",\n  \"medicalRecords\": {\n    \"id\": \"<long>\",\n    \"lvef\": \"<integer>\",\n    \"nyhaClass\": \"<string>\",\n    \"hypertensionUpper\": \"<integer>\",\n    \"hypertensionLower\": \"<integer>\",\n    \"cholesterolLevel\": \"<double>\",\n    \"oxygenSaturation\": \"<integer>\",\n    \"smokingHistory\": \"<string>\",\n    \"diabetes\": \"<double>\",\n    \"exerciseTolerance\": \"<double>\",\n    \"cardiacEventType\": \"<string>\",\n    \"dateOfLastCardiacEvent\": \"<date>\",\n    \"alcoholIntake\": \"<string>\",\n    \"physicalActivityBeforeEvent\": \"<string>\",\n    \"cardiacError\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"height\": \"<float>\",\n  \"weight\": \"<float>\",\n  \"medicalRecords\": {\n    \"id\": \"<long>\",\n    \"lvef\": \"<integer>\",\n    \"nyhaClass\": \"<string>\",\n    \"hypertensionUpper\": \"<integer>\",\n    \"hypertensionLower\": \"<integer>\",\n    \"cholesterolLevel\": \"<double>\",\n    \"oxygenSaturation\": \"<integer>\",\n    \"smokingHistory\": \"<string>\",\n    \"diabetes\": \"<double>\",\n    \"exerciseTolerance\": \"<double>\",\n    \"cardiacEventType\": \"<string>\",\n    \"dateOfLastCardiacEvent\": \"<date>\",\n    \"alcoholIntake\": \"<string>\",\n    \"physicalActivityBeforeEvent\": \"<string>\",\n    \"cardiacError\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"height\": \"<float>\",\n  \"weight\": \"<float>\",\n  \"medicalRecords\": {\n    \"id\": \"<long>\",\n    \"lvef\": \"<integer>\",\n    \"nyhaClass\": \"<string>\",\n    \"hypertensionUpper\": \"<integer>\",\n    \"hypertensionLower\": \"<integer>\",\n    \"cholesterolLevel\": \"<double>\",\n    \"oxygenSaturation\": \"<integer>\",\n    \"smokingHistory\": \"<string>\",\n    \"diabetes\": \"<double>\",\n    \"exerciseTolerance\": \"<double>\",\n    \"cardiacEventType\": \"<string>\",\n    \"dateOfLastCardiacEvent\": \"<date>\",\n    \"alcoholIntake\": \"<string>\",\n    \"physicalActivityBeforeEvent\": \"<string>\",\n    \"cardiacError\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "get Patient Plan History",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id/planHistory",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id",
+												"planHistory"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/:id/planHistory",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														":id",
+														"planHistory"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"userPlans\": [\n    {\n      \"userPlanId\": \"<integer>\",\n      \"planName\": \"<string>\",\n      \"planDescription\": \"<string>\",\n      \"planNotes\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\",\n      \"workouts\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"imageUrl\": \"<string>\",\n          \"videoUrl\": \"<string>\",\n          \"difficulty\": \"<string>\",\n          \"duration\": \"<integer>\",\n          \"patientNote\": \"<string>\",\n          \"alternateExerciseId\": \"<long>\",\n          \"sets\": \"<integer>\",\n          \"reps\": \"<integer>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"imageUrl\": \"<string>\",\n          \"videoUrl\": \"<string>\",\n          \"difficulty\": \"<string>\",\n          \"duration\": \"<integer>\",\n          \"patientNote\": \"<string>\",\n          \"alternateExerciseId\": \"<long>\",\n          \"sets\": \"<integer>\",\n          \"reps\": \"<integer>\"\n        }\n      ],\n      \"current\": \"<boolean>\"\n    },\n    {\n      \"userPlanId\": \"<integer>\",\n      \"planName\": \"<string>\",\n      \"planDescription\": \"<string>\",\n      \"planNotes\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\",\n      \"workouts\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"imageUrl\": \"<string>\",\n          \"videoUrl\": \"<string>\",\n          \"difficulty\": \"<string>\",\n          \"duration\": \"<integer>\",\n          \"patientNote\": \"<string>\",\n          \"alternateExerciseId\": \"<long>\",\n          \"sets\": \"<integer>\",\n          \"reps\": \"<integer>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"imageUrl\": \"<string>\",\n          \"videoUrl\": \"<string>\",\n          \"difficulty\": \"<string>\",\n          \"duration\": \"<integer>\",\n          \"patientNote\": \"<string>\",\n          \"alternateExerciseId\": \"<long>\",\n          \"sets\": \"<integer>\",\n          \"reps\": \"<integer>\"\n        }\n      ],\n      \"current\": \"<boolean>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "UpdateProgress",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>Status</th>",
+													"        <th>Total Count</th>",
+													"        <th>Completed Count</th>",
+													"        <th>Message</th>",
+													"    </tr>",
+													"    <tr>",
+													"        <td>{{response.status}}</td>",
+													"        <td>{{response.totalCount}}</td>",
+													"        <td>{{response.completedCount}}</td>",
+													"        <td>{{response.message}}</td>",
+													"    </tr>",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return {response: pm.response.json()}",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id/updateProgress/:userPlanId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id",
+												"updateProgress",
+												":userPlanId"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												},
+												{
+													"key": "userPlanId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "CurrentPlanAndProgress",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id/currentPlanAndProgress",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id",
+												"currentPlanAndProgress"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GraphData",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>Date</th>",
+													"        <th>Percentage</th>",
+													"    </tr>",
+													"    ",
+													"    {{#each response.data}}",
+													"        <tr>",
+													"            <td>{{date}}</td>",
+													"            <td>{{percentage}}</td>",
+													"        </tr>",
+													"    {{/each}}",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return {response: pm.response.json()}",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:id/graphData?startDate=2025-05-06&endDate=2025-05-08",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":id",
+												"graphData"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "2025-05-06"
+												},
+												{
+													"key": "endDate",
+													"value": "2025-05-08"
+												}
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "add User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"Michael\",\n  \"lastName\": \"Smith\",\n  \"email\": \"michael.smith@example.com\",\n  \"phoneNumber\": \"+12345678901\",\n  \"age\": 58,\n  \"height\": 1.78,\n  \"weight\": 80.6,\n  \"medicalRecords\": {\n    \"lvef\": 42,\n    \"nyhaClass\": \"Class II\",\n    \"hypertensionUpper\": 145,\n    \"hypertensionLower\": 92,\n    \"cholesterolLevel\": 5.9,\n    \"oxygenSaturation\": 95,\n    \"smokingHistory\": \"Former smoker\",\n    \"diabetes\": 6.2,\n    \"exerciseTolerance\": 4.8,\n    \"cardiacEventType\": \"Myocardial Infarction\",\n    \"dateOfLastCardiacEvent\": \"2024-09-20\",\n    \"alcoholIntake\": \"Moderate\",\n    \"physicalActivityBeforeEvent\": \"Moderately active\",\n    \"cardiacError\": [\n      \"Arrhythmia\",\n      \"Left Ventricular Dysfunction\"\n    ]\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/user/add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"add"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"height\": \"<float>\",\n  \"weight\": \"<float>\",\n  \"medicalRecords\": {\n    \"id\": \"<long>\",\n    \"lvef\": \"<integer>\",\n    \"nyhaClass\": \"<string>\",\n    \"hypertensionUpper\": \"<integer>\",\n    \"hypertensionLower\": \"<integer>\",\n    \"cholesterolLevel\": \"<double>\",\n    \"oxygenSaturation\": \"<integer>\",\n    \"smokingHistory\": \"<string>\",\n    \"diabetes\": \"<double>\",\n    \"exerciseTolerance\": \"<double>\",\n    \"cardiacEventType\": \"<string>\",\n    \"dateOfLastCardiacEvent\": \"<date>\",\n    \"alcoholIntake\": \"<string>\",\n    \"physicalActivityBeforeEvent\": \"<string>\",\n    \"cardiacError\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "<object>"
+								}
+							]
+						},
+						{
+							"name": "get All Users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/user/getAll",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"getAll"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/getAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"getAll"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  {\n    \"id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"age\": \"<integer>\",\n    \"height\": \"<float>\",\n    \"weight\": \"<float>\",\n    \"medicalRecords\": {\n      \"id\": \"<long>\",\n      \"lvef\": \"<integer>\",\n      \"nyhaClass\": \"<string>\",\n      \"hypertensionUpper\": \"<integer>\",\n      \"hypertensionLower\": \"<integer>\",\n      \"cholesterolLevel\": \"<double>\",\n      \"oxygenSaturation\": \"<integer>\",\n      \"smokingHistory\": \"<string>\",\n      \"diabetes\": \"<double>\",\n      \"exerciseTolerance\": \"<double>\",\n      \"cardiacEventType\": \"<string>\",\n      \"dateOfLastCardiacEvent\": \"<date>\",\n      \"alcoholIntake\": \"<string>\",\n      \"physicalActivityBeforeEvent\": \"<string>\",\n      \"cardiacError\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "plans",
+					"item": [
+						{
+							"name": "{planId}/workouts/{workoutId}",
+							"item": [
+								{
+									"name": "add Workout",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/plans/:planId/workouts/:workoutId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"plans",
+												":planId",
+												"workouts",
+												":workoutId"
+											],
+											"variable": [
+												{
+													"key": "planId",
+													"value": "<long>",
+													"description": "(Required) "
+												},
+												{
+													"key": "workoutId",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/plans/:planId/workouts/:workoutId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"plans",
+														":planId",
+														"workouts",
+														":workoutId"
+													],
+													"variable": [
+														{
+															"key": "planId",
+															"value": "<long>",
+															"description": "(Required) "
+														},
+														{
+															"key": "workoutId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"workouts\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "remove Workout",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/plans/:planId/workouts/:workoutId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"plans",
+												":planId",
+												"workouts",
+												":workoutId"
+											],
+											"variable": [
+												{
+													"key": "planId",
+													"value": "<long>",
+													"description": "(Required) "
+												},
+												{
+													"key": "workoutId",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/plans/:planId/workouts/:workoutId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"plans",
+														":planId",
+														"workouts",
+														":workoutId"
+													],
+													"variable": [
+														{
+															"key": "planId",
+															"value": "<long>",
+															"description": "(Required) "
+														},
+														{
+															"key": "workoutId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"workouts\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get Plan",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/plans/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"plans",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/plans/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"plans",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"workouts\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "delete Plan",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/plans/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"plans",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/plans/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"plans",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get All Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/plans",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"plans"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/plans",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"plans"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"introduction\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"workouts\": [\n      {\n        \"name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"description\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"videoUrl\": \"<string>\",\n        \"difficulty\": \"<string>\",\n        \"duration\": \"<integer>\",\n        \"patientNote\": \"<string>\",\n        \"alternateExerciseId\": \"<long>\",\n        \"sets\": \"<integer>\",\n        \"reps\": \"<integer>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"description\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"videoUrl\": \"<string>\",\n        \"difficulty\": \"<string>\",\n        \"duration\": \"<integer>\",\n        \"patientNote\": \"<string>\",\n        \"alternateExerciseId\": \"<long>\",\n        \"sets\": \"<integer>\",\n        \"reps\": \"<integer>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"introduction\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"workouts\": [\n      {\n        \"name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"description\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"videoUrl\": \"<string>\",\n        \"difficulty\": \"<string>\",\n        \"duration\": \"<integer>\",\n        \"patientNote\": \"<string>\",\n        \"alternateExerciseId\": \"<long>\",\n        \"sets\": \"<integer>\",\n        \"reps\": \"<integer>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"id\": \"<long>\",\n        \"description\": \"<string>\",\n        \"imageUrl\": \"<string>\",\n        \"videoUrl\": \"<string>\",\n        \"difficulty\": \"<string>\",\n        \"duration\": \"<integer>\",\n        \"patientNote\": \"<string>\",\n        \"alternateExerciseId\": \"<long>\",\n        \"sets\": \"<integer>\",\n        \"reps\": \"<integer>\"\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "create Plan",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"workoutIds\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/plans",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"plans"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"workoutIds\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/plans",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"plans"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"introduction\": \"<string>\",\n  \"duration\": \"<integer>\",\n  \"workouts\": [\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"id\": \"<long>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"difficulty\": \"<string>\",\n      \"duration\": \"<integer>\",\n      \"patientNote\": \"<string>\",\n      \"alternateExerciseId\": \"<long>\",\n      \"sets\": \"<integer>\",\n      \"reps\": \"<integer>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "feedback",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "delete Feedback",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/feedback/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"feedback",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/feedback/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"feedback",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "submit Feedback",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userPlanId\": 0,\n  \"feedback\": \"string\",\n  \"exerciseHelpFulness\": 0,\n  \"exerciseEffectiveness\": 0,\n  \"howWellDidyouFare\": 0,\n  \"suggestedImprovement\": \"string\",\n  \"overallRating\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/feedback",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"feedback"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"feedback\": \"<string>\",\n  \"exerciseHelpFulness\": \"<integer>\",\n  \"exerciseEffectiveness\": \"<integer>\",\n  \"howWellDidyouFare\": \"<integer>\",\n  \"suggestedImprovement\": \"<string>\",\n  \"overallRating\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/feedback",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"feedback"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"feedback\": \"<string>\",\n  \"exerciseHelpFulness\": \"<integer>\",\n  \"exerciseEffectiveness\": \"<integer>\",\n  \"howWellDidyouFare\": \"<integer>\",\n  \"suggestedImprovement\": \"<string>\",\n  \"overallRating\": \"<integer>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Latest Feedback For UserPlan",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/feedback/userPlan/12",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"feedback",
+										"userPlan",
+										"12"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "populate Workouts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/populateWorkouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"populateWorkouts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/admin/populateWorkouts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"populateWorkouts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								}
+							]
+						},
+						{
+							"name": "clear Database",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/clearAllData",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"clearAllData"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/admin/clearAllData",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"clearAllData"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
