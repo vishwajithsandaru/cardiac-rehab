@@ -16,6 +16,7 @@ import com.dexter.fyp.backend.dto.DoctorAvailabilityDto;
 import com.dexter.fyp.backend.dto.LoginRequest;
 import com.dexter.fyp.backend.dto.SignUpRequestDoctorDto;
 import com.dexter.fyp.backend.dto.SignUpRequestPatientDto;
+import com.dexter.fyp.backend.dto.UserDetailsDto;
 import com.dexter.fyp.backend.entity.AppUser;
 import com.dexter.fyp.backend.entity.Doctor;
 import com.dexter.fyp.backend.entity.User;
@@ -139,6 +140,35 @@ public class AuthService {
         Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         String jwtToken = jwtUtil.generateToken((UserDetails) auth.getPrincipal());
         return new AuthResponse(jwtToken);
+
+    }
+
+    public UserDetailsDto getUserDetails(Authentication authentication){
+
+        String email = authentication.getName();
+        AppUser appUser = appUserRepository.findByEmail(email).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        UserDetailsDto userDetailsDto = new UserDetailsDto();
+        
+        if(appUser instanceof User user){
+            userDetailsDto.setUserId(user.getId());
+            userDetailsDto.setFirstName(user.getFirstName());
+            userDetailsDto.setLastName(user.getLastName());
+            userDetailsDto.setEmail(user.getEmail());
+            userDetailsDto.setRole(appUser.getRole());
+        }else{
+
+            Doctor doctor = (Doctor) appUser;
+
+            userDetailsDto.setUserId(doctor.getId());
+            userDetailsDto.setFirstName(doctor.getFirstName());
+            userDetailsDto.setLastName(doctor.getLastName());
+            userDetailsDto.setEmail(doctor.getEmail());
+            userDetailsDto.setRole(doctor.getRole());
+        }
+
+        return userDetailsDto;
+        
 
     }
     
