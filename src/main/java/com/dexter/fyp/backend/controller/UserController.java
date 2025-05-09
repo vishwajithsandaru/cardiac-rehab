@@ -39,7 +39,7 @@ public class UserController {
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         return userService.getUserById(id)
                 .map(ResponseEntity::ok)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not fsound"));
     }
 
     @DeleteMapping("/{id}")
