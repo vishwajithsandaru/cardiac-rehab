@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.dexter.fyp.backend.service.CustomUserDetailsService;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -27,13 +28,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        
-
-
         http.csrf((csrf)->csrf.disable()).authorizeHttpRequests(
             (authorizeRequests) -> authorizeRequests.requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/doctor/**").hasRole("DOCTOR")
-            .requestMatchers("/api/patient/**").hasRole("PATIENT")
+            .requestMatchers("/api/admin/**").permitAll()
+            .requestMatchers("/api/doctors/**").hasAnyRole("DOCTOR", "PATIENT")
+            .requestMatchers("/api/user/**").hasAnyRole("DOCTOR", "PATIENT")
             .requestMatchers("/auth/**",
                     "/v3/api-docs/**",
                     "/swagger-ui.html",
