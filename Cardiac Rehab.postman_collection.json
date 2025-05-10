@@ -871,85 +871,6 @@
 							]
 						},
 						{
-							"name": "create Doctor",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "*/*"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"firstName\": \"Emily\",\n  \"lastName\": \"Clark\",\n  \"email\": \"emily.clark@example.com\",\n  \"phone\": \"+64 21 123 4567\",\n  \"specialization\": \"Cardiologist\",\n  \"emergencyContact\": \"+64 22 987 6543\",\n  \"availabilities\": [\n    {\n      \"dayOfWeek\": \"Monday\",\n      \"startTime\": \"09:00\",\n      \"endTime\": \"17:00\"\n    },\n    {\n      \"dayOfWeek\": \"Wednesday\",\n      \"startTime\": \"10:00\",\n      \"endTime\": \"16:00\"\n    },\n    {\n      \"dayOfWeek\": \"Friday\",\n      \"startTime\": \"08:30\",\n      \"endTime\": \"14:30\"\n    }\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/api/doctors",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"doctors"
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "OK",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "*/*"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/api/doctors",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"doctors"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "*/*"
-										}
-									],
-									"cookie": [],
-									"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"specialization\": \"<string>\",\n  \"emergencyContact\": \"<string>\",\n  \"availabilities\": [\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"<long>\",\n      \"dayOfWeek\": \"<string>\",\n      \"startTime\": \"<string>\",\n      \"endTime\": \"<string>\",\n      \"doctor\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone\": \"<string>\",\n        \"specialization\": \"<string>\",\n        \"emergencyContact\": \"<string>\",\n        \"availabilities\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DoctorAvailability detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
-								}
-							]
-						},
-						{
 							"name": "get Doctors By Specialization",
 							"request": {
 								"method": "GET",
@@ -3397,7 +3318,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"userPlanId\": 0,\n  \"feedback\": \"string\",\n  \"exerciseHelpFulness\": 0,\n  \"exerciseEffectiveness\": 0,\n  \"howWellDidyouFare\": 0,\n  \"suggestedImprovement\": \"string\",\n  \"overallRating\": 0\n}",
+									"raw": "{\n  \"userPlanId\": 19,\n  \"feedback\": \"Test\",\n  \"exerciseHelpFulness\": 2,\n  \"exerciseEffectiveness\": 2,\n  \"howWellDidyouFare\": 2,\n  \"suggestedImprovement\": \"test\",\n  \"overallRating\": 4\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3466,7 +3387,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/feedback/userPlan/12",
+									"raw": "{{baseUrl}}/api/feedback/userPlan/:userPlanId",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -3474,7 +3395,13 @@
 										"api",
 										"feedback",
 										"userPlan",
-										"12"
+										":userPlanId"
+									],
+									"variable": [
+										{
+											"key": "userPlanId",
+											"value": "19"
+										}
 									]
 								}
 							},
@@ -3602,6 +3529,126 @@
 									"body": "<string>"
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Sign Up Doctor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"dr.smith@example.com\",\n  \"password\": \"SecurePass123\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"specialization\": \"Cardiology\",\n  \"emergencyContact\": \"+64-21-123-4567\",\n  \"availabilities\": [\n    {\n      \"dayOfWeek\": \"Monday\",\n      \"startTime\": \"09:00\",\n      \"endTime\": \"17:00\"\n    },\n    {\n      \"dayOfWeek\": \"Wednesday\",\n      \"startTime\": \"10:00\",\n      \"endTime\": \"16:00\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/doctor/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"doctor",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign Up Patient",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"jane.doe@example.com\",\n  \"password\": \"SecurePass123!\",\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"phone\": \"0211234567\",\n  \"age\": 32,\n  \"height\": 165.5,\n  \"weight\": 62.3,\n  \"medicalRecords\": {\n    \"lvef\": 60,\n    \"nyhaClass\": \"Class II\",\n    \"hypertensionUpper\": 120,\n    \"hypertensionLower\": 80,\n    \"cholesterolLevel\": 5.2,\n    \"oxygenSaturation\": 98,\n    \"smokingHistory\": \"Non-smoker\",\n    \"diabetes\": 0.0,\n    \"exerciseTolerance\": 7.5,\n    \"cardiacEventType\": \"Myocardial Infarction\",\n    \"dateOfLastCardiacEvent\": \"2024-10-15\",\n    \"alcoholIntake\": \"Occasional\",\n    \"physicalActivityBeforeEvent\": \"Moderate\",\n    \"cardiacError\": [\n      \"Arrhythmia\"\n    ]\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/patient/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"patient",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"jane.doe@example.com\",\n    \"password\":\"SecurePass123!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYW5lLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc0NjgwMTk1MiwiZXhwIjoxNzQ2ODM3OTUyfQ.b1EC7XaTHIDagUP26Fd0UATVTIwmi3uElDG8DuTlCsA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/auth/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}

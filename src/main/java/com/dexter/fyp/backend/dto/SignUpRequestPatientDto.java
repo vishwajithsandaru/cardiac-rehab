@@ -30,15 +30,15 @@ public class SignUpRequestPatientDto {
 
     @NotBlank(message = "Age is required")
     @Pattern(regexp = "^[0-9]{1,3}$", message = "Age must be a number")
-    private String age;
+    private Integer age;
 
     @NotBlank(message = "Height is required")
     @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "Height must be a valid number")
-    private String height;
+    private Float height;
 
     @NotBlank(message = "Weight is required")
     @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "Weight must be a valid number")
-    private String weight;
+    private Float weight;
 
     @NotNull(message = "Medical records are required")
     private MedicalRecordsDto medicalRecords;

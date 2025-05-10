@@ -86,10 +86,10 @@ public class UserController {
     }
 
     @PostMapping("{id}/updateProgress/{userPlanId}")
-    public ResponseEntity<UpdateProgressResponse> updateProgress(@PathVariable Long id, @PathVariable Integer userPlanId){
+    public ResponseEntity<UpdateProgressResponse> updateProgress(@PathVariable Long id, @PathVariable Integer userPlanId, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
 
         try {
-            UpdateProgressResponse response = userService.updateProgress(userPlanId, id);
+            UpdateProgressResponse response = userService.updateProgress(userPlanId, id, date);
             return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
             UpdateProgressResponse response = new UpdateProgressResponse();

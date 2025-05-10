@@ -265,67 +265,6 @@ public class UserService {
         return email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");
     }
 
-    // public User.WorkoutProgress getCurrentDayWorkoutProgress(Long userId) {
-    //     User user = userRepository.findById(userId)
-    //             .orElseThrow(() -> new IllegalArgumentException("User not found with ID " + userId));
-
-    //     if (user.getPlan() == null) {
-    //         throw new IllegalArgumentException("User does not have an assigned workout plan.");
-    //     }
-
-    //     Plan plan = user.getPlan();
-    //     var todayWorkouts = plan.getWorkoutsForToday();
-    //     if (todayWorkouts == null || todayWorkouts.isEmpty()) {
-    //         throw new IllegalArgumentException("No workouts scheduled for today.");
-    //     }
-
-    //     long completedWorkouts = todayWorkouts.stream().filter(Workout::isCompleted).count();
-    //     long totalWorkouts = todayWorkouts.size();
-    //     long remainingWorkouts = totalWorkouts - completedWorkouts;
-    //     double progressPercentage = (double) completedWorkouts / totalWorkouts * 100;
-
-    //     User.WorkoutProgress progress = new User.WorkoutProgress(
-    //             plan.getName(),
-    //             totalWorkouts,
-    //             completedWorkouts,
-    //             remainingWorkouts,
-    //             progressPercentage
-    //     );
-
-    //     user.setCurrentDayProgress(progress);
-    //     return progress;
-    // }
-
-    // public User.WorkoutProgress getTotalWorkoutProgress(Long userId) {
-    //     User user = userRepository.findById(userId)
-    //             .orElseThrow(() -> new IllegalArgumentException("User not found with ID " + userId));
-
-    //     if (user.getPlan() == null) {
-    //         throw new IllegalArgumentException("User does not have an assigned workout plan.");
-    //     }
-
-    //     Plan plan = user.getPlan();
-    //     List<Workout> workouts = plan.getWorkouts();
-    //     if (workouts == null || workouts.isEmpty()) {
-    //         throw new IllegalArgumentException("No workouts found in the plan.");
-    //     }
-
-    //     long totalWorkouts = workouts.size();
-    //     long completedWorkouts = workouts.stream().filter(Workout::isCompleted).count();
-    //     long remainingWorkouts = totalWorkouts - completedWorkouts;
-    //     double progressPercentage = (double) completedWorkouts / totalWorkouts * 100;
-
-    //     User.WorkoutProgress progress = new User.WorkoutProgress(
-    //             plan.getName(),
-    //             totalWorkouts,
-    //             completedWorkouts,
-    //             remainingWorkouts,
-    //             progressPercentage
-    //     );
-
-    //     user.setTotalProgress(progress);
-    //     return progress;
-    // }
 
     public UserPlanHistoryResponse getPatientPlanHistory(Long userId) {
         List<UserPlan> userPlans = userPlanRepository.findByUser_IdOrderByCreatedDateTimeDesc(userId);
@@ -494,7 +433,7 @@ public class UserService {
 
     }
 
-    public UpdateProgressResponse updateProgress(Integer userPlanId, Long userId) throws Exception {
+    public UpdateProgressResponse updateProgress(Integer userPlanId, Long userId, LocalDate today) throws Exception {
 
 
         Optional<User> user = userRepository.findById(userId);
@@ -507,7 +446,7 @@ public class UserService {
             if(userPlan.getUser() != user.get()){
                 throw new Exception("User is not assigned to this plan");
             }
-            UserPlanProgress userPlanProgress = userPlanProgressRepository.findByUserPlan(userPlan);
+            UserPlanProgress userPlanProgress = userPlanProgressRepository.findByUserPlanAndDate(userPlan, today);
 
             int count = 0;
 
@@ -525,7 +464,7 @@ public class UserService {
                 newUserPlanProgress.setCountCompleted(1);
                 newUserPlanProgress.setCountTotal(count);
                 newUserPlanProgress.setPercentage(100.0 / count);
-                newUserPlanProgress.setDate(LocalDate.now());
+                newUserPlanProgress.setDate(today);
                 userPlanProgressRepository.save(newUserPlanProgress);
                 updateProgressResponse.setStatus(Status.SUCCESS);
                 updateProgressResponse.setMessage("Progress updated successfully");
@@ -539,7 +478,7 @@ public class UserService {
                     userPlanProgress.setCountCompleted(completedCount + 1);
                     userPlanProgress.setCountTotal(count);
                     userPlanProgress.setPercentage(((double) (completedCount + 1) / count) * 100);
-                    userPlanProgress.setDate(LocalDate.now());
+                    userPlanProgress.setDate(today);
                     userPlanProgressRepository.save(userPlanProgress);
                     updateProgressResponse.setStatus(Status.SUCCESS);
                     updateProgressResponse.setMessage("Progress updated successfully");

@@ -26,6 +26,8 @@ import com.dexter.fyp.backend.enums.Role;
 import com.dexter.fyp.backend.repository.AppUserRepository;
 import com.dexter.fyp.backend.util.JWTUtil;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class AuthService {
 
@@ -44,6 +46,7 @@ public class AuthService {
         this.userService = userService;
     }
 
+    @Transactional
     public AuthResponse doctorSignUp(SignUpRequestDoctorDto request){
 
         if(appUserRepository.existsByEmail(request.getEmail())){
@@ -88,6 +91,7 @@ public class AuthService {
 
     }
 
+    @Transactional
     public AuthResponse patientSignUp(SignUpRequestPatientDto request){
 
         if(appUserRepository.existsByEmail(request.getEmail())){
