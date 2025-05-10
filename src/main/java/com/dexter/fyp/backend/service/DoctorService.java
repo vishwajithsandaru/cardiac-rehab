@@ -100,7 +100,7 @@ public class DoctorService {
             for (int j = i + 1; j < availabilities.size(); j++) {
                 DoctorAvailability a = availabilities.get(i);
                 DoctorAvailability b = availabilities.get(j);
-                if (a.getStartTime().isBefore(b.getEndTime()) && b.getStartTime().isBefore(a.getEndTime())) {
+                if (a.getDayOfWeek() == b.getDayOfWeek() && a.getStartTime().isBefore(b.getEndTime()) && b.getStartTime().isBefore(a.getEndTime())) {
                     throw new IllegalArgumentException("Availability time slots overlap");
                 }
             }
