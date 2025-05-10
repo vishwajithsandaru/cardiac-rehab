@@ -22,25 +22,6 @@ public class PlanService {
         this.workoutRepository = workoutRepository;
     }
 
-    // Create a new plan with optional workout IDs
-    public Plan createPlan(Plan plan, List<Long> workoutIds) {
-        validatePlan(plan);
-
-         if (planRepository.findByName(plan.getName()).isPresent()) {
-             throw new IllegalArgumentException("Plan with the same name already exists");
-         }
-
-        if (workoutIds != null && !workoutIds.isEmpty()) {
-            List<Workout> workouts = workoutRepository.findAllById(workoutIds);
-            if (workouts.size() != workoutIds.size()) {
-                throw new EntityNotFoundException("One or more workout IDs are invalid");
-            }
-            plan.setWorkouts(workouts);
-        }
-
-        return planRepository.save(plan);
-    }
-
     public Plan getPlanById(Long id) {
         return planRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Plan not found with id: " + id));
@@ -53,36 +34,6 @@ public class PlanService {
 
     public List<Plan> getAllPlans() {
         return planRepository.findAll();
-    }
-
-    public void deletePlan(Long planId) {
-        if (!planRepository.existsById(planId)) {
-            throw new EntityNotFoundException("Plan not found with id: " + planId);
-        }
-        planRepository.deleteById(planId);
-    }
-
-    public Plan addWorkoutToPlan(Long planId, Long workoutId) {
-        Plan plan = getPlanById(planId);
-        Workout workout = workoutRepository.findById(workoutId)
-                .orElseThrow(() -> new EntityNotFoundException("Workout not found with id: " + workoutId));
-
-        if (!plan.getWorkouts().contains(workout)) {
-            plan.getWorkouts().add(workout);
-        }
-
-        return planRepository.save(plan);
-    }
-
-    public Plan removeWorkoutFromPlan(Long planId, Long workoutId) {
-        Plan plan = getPlanById(planId);
-        boolean removed = plan.getWorkouts().removeIf(w -> w.getId().equals(workoutId));
-
-        if (!removed) {
-            throw new IllegalArgumentException("Workout with id " + workoutId + " is not part of the plan");
-        }
-
-        return planRepository.save(plan);
     }
 
     private void validatePlan(Plan plan) {

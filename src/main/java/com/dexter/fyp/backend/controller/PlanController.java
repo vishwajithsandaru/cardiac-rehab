@@ -19,15 +19,6 @@ public class PlanController {
         this.planService = planService;
     }
 
-    @PostMapping
-    public ResponseEntity<Plan> createPlan(@RequestBody PlanCreateRequest request) {
-        Plan plan = new Plan();
-        plan.setName(request.getName());
-        plan.setDescription(request.getDescription());
-        plan.setDuration(request.getDuration());
-        return ResponseEntity.ok(planService.createPlan(plan, request.getWorkoutIds()));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Plan> getPlan(@PathVariable Long id) {
         return ResponseEntity.ok(planService.getPlanById(id));
@@ -38,19 +29,4 @@ public class PlanController {
         return planService.getAllPlans();
     }
 
-    @PostMapping("/{planId}/workouts/{workoutId}")
-    public ResponseEntity<Plan> addWorkout(@PathVariable Long planId, @PathVariable Long workoutId) {
-        return ResponseEntity.ok(planService.addWorkoutToPlan(planId, workoutId));
-    }
-
-    @DeleteMapping("/{planId}/workouts/{workoutId}")
-    public ResponseEntity<Plan> removeWorkout(@PathVariable Long planId, @PathVariable Long workoutId) {
-        return ResponseEntity.ok(planService.removeWorkoutFromPlan(planId, workoutId));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePlan(@PathVariable Long id) {
-        planService.deletePlan(id);
-        return ResponseEntity.noContent().build();
-    }
 }
