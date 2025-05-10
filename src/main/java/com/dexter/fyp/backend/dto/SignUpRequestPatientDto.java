@@ -1,5 +1,9 @@
 package com.dexter.fyp.backend.dto;
 
+import java.time.LocalDate;
+
+import com.dexter.fyp.backend.enums.Gender;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -39,6 +43,12 @@ public class SignUpRequestPatientDto {
     @NotBlank(message = "Weight is required")
     @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "Weight must be a valid number")
     private Float weight;
+
+    private LocalDate dateOfBirth;
+
+    private Gender gender;
+
+    private String profilePhotoUrl;
 
     @NotNull(message = "Medical records are required")
     private MedicalRecordsDto medicalRecords;

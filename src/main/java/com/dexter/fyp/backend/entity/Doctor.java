@@ -6,8 +6,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.dexter.fyp.backend.enums.Gender;
 
 @Entity
 @Data
@@ -25,6 +28,13 @@ public class Doctor extends AppUser {
     private String lastName;
 
     private String phone;
+
+    private LocalDate dateOfBirth;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    private String profilePhotoUrl;
 
     //should be an enum
     private String specialization;

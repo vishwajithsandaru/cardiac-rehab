@@ -63,6 +63,9 @@ public class AuthService {
         doctor.setFirstName(request.getFirstName());
         doctor.setLastName(request.getLastName());
         doctor.setSpecialization(request.getSpecialization());
+        doctor.setDateOfBirth(request.getDateOfBirth());
+        doctor.setGender(request.getGender());
+        doctor.setProfilePhotoUrl(request.getProfilePhotoUrl());
 
         List<DoctorAvailabilityDto> availabilites = request.getAvailabilities();
         if(availabilites == null || availabilites.isEmpty()){
@@ -113,6 +116,9 @@ public class AuthService {
         patientUser.setAge(request.getAge());
         patientUser.setHeight(request.getHeight());
         patientUser.setWeight(request.getWeight());
+        patientUser.setDateOfBirth(request.getDateOfBirth());
+        patientUser.setGender(request.getGender());
+        patientUser.setProfilePhotoUrl(request.getProfilePhotoUrl());
 
 
         
@@ -169,6 +175,7 @@ public class AuthService {
             userDetailsDto.setLastName(user.getLastName());
             userDetailsDto.setEmail(user.getEmail());
             userDetailsDto.setRole(appUser.getRole());
+            userDetailsDto.setProfilePhotoUrl(user.getProfilePhotoUrl());
         }else{
 
             Doctor doctor = (Doctor) appUser;
@@ -178,6 +185,7 @@ public class AuthService {
             userDetailsDto.setLastName(doctor.getLastName());
             userDetailsDto.setEmail(doctor.getEmail());
             userDetailsDto.setRole(doctor.getRole());
+            userDetailsDto.setProfilePhotoUrl(doctor.getProfilePhotoUrl());
         }
 
         return userDetailsDto;

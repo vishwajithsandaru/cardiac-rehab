@@ -1,5 +1,9 @@
 package com.dexter.fyp.backend.entity;
 
+import java.time.LocalDate;
+
+import com.dexter.fyp.backend.enums.Gender;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -34,6 +38,13 @@ public class User extends AppUser {
 
     @Positive(message = "Weight must be positive")
     private Float weight;
+
+    private LocalDate dateOfBirth;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    private String profilePhotoUrl;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_records_id")

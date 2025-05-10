@@ -1,8 +1,10 @@
 package com.dexter.fyp.backend.service;
 
 import com.dexter.fyp.backend.dto.BookingAvailabilitiesResponse;
+import com.dexter.fyp.backend.dto.BookingDetailsDto;
 import com.dexter.fyp.backend.dto.CreateBookingRequest;
 import com.dexter.fyp.backend.dto.GeneralResponse;
+import com.dexter.fyp.backend.dto.PatientDto;
 import com.dexter.fyp.backend.entity.Booking;
 import com.dexter.fyp.backend.entity.Doctor;
 import com.dexter.fyp.backend.entity.DoctorAvailability;
@@ -19,6 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -132,6 +137,71 @@ public class BookingService {
             }
         }
         return true;
+    }
+
+    public Page<PatientDto> getDoctorBookings(Long doctorId, int page, int size) throws Exception{
+
+        Optional<Doctor> doctor = doctorRepository.findById(doctorId);
+        if(!doctor.isPresent()){
+            throw new Exception("Doctor not found for the given id.");
+        }
+        
+        Pageable pageable = PageRequest.of(page, size);
+        
+        Page<PatientDto> patientDtos = bookingRepository.findByDoctorOrderByBookingDateDesc(doctor.get(), pageable).map(this::convertBookingToPatientDto);
+
+        return patientDtos;
+
+    }
+
+    public Page<BookingDetailsDto> getUserBookingsDetails(Long userId, int page, int size) throws Exception{
+
+        Optional<User> user = userRepository.findById(userId);
+        if(!user.isPresent()){
+            throw new Exception("User not found for the given id.");
+        }
+        
+        Pageable pageable = PageRequest.of(page, size);
+        
+        Page<BookingDetailsDto> bookingDetailsDtos = bookingRepository.findByUserOrderByBookingDateDesc(user.get(), pageable).map(this::convertBookingToBookingDetailsDto);
+
+        return bookingDetailsDtos;
+
+    }
+
+    private PatientDto convertBookingToPatientDto(Booking booking){
+
+        User user = booking.getUser();
+        PatientDto patientDto = new PatientDto();
+        patientDto.setUserId(user.getId());
+        patientDto.setFirstName(user.getFirstName());
+        patientDto.setLastName(user.getLastName());
+        patientDto.setPhone(user.getPhoneNumber());
+        patientDto.setEmail(user.getEmail());
+        patientDto.setProfilePhotoUrl(user.getProfilePhotoUrl());
+
+        return patientDto;
+
+    }
+
+    private BookingDetailsDto convertBookingToBookingDetailsDto(Booking booking){
+
+        Doctor doctor = booking.getDoctor();
+        BookingDetailsDto bookingDetailsDto = new BookingDetailsDto();
+        bookingDetailsDto.setDoctorId(doctor.getId());
+        bookingDetailsDto.setDoctorFirstName(doctor.getFirstName());
+        bookingDetailsDto.setDoctorLastName(doctor.getLastName());
+        bookingDetailsDto.setDoctorEmail(doctor.getEmail());
+        bookingDetailsDto.setDoctorPhone(doctor.getPhone());
+        bookingDetailsDto.setDoctorProfilePhotoUrl(doctor.getProfilePhotoUrl());
+        bookingDetailsDto.setDate(booking.getBookingDate());
+        bookingDetailsDto.setStartTime(booking.getDoctorAvailability().getStartTime());
+        bookingDetailsDto.setEndTime(booking.getDoctorAvailability().getEndTime());
+        bookingDetailsDto.setRemarks(booking.getRemark());
+        bookingDetailsDto.setStatus(booking.getStatus());
+
+        return bookingDetailsDto;
+
     }
 
 
