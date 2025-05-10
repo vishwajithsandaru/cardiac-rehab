@@ -99,6 +99,7 @@ public class BookingService {
         while(!refDate.isAfter(endDate)){
 
             BookingAvailabilitiesResponse.Slot slot = new BookingAvailabilitiesResponse.Slot();
+            
             DayOfWeek dayOfWeek = refDate.getDayOfWeek();
 
             slot.setDate(refDate);
@@ -107,6 +108,7 @@ public class BookingService {
             List<BookingAvailabilitiesResponse.Availability> subAvailabilities = new ArrayList<>();
 
             List<Booking> bookings = bookingRepository.findByDoctorAndBookingDate(doctor, refDate);
+
             List<DoctorAvailability> availabilities = doctorAvailabilityRepository.findByDoctorAndDayOfWeek(doctor, dayOfWeek);
 
             for(DoctorAvailability availability : availabilities){
@@ -130,7 +132,7 @@ public class BookingService {
             }
 
             refDate = refDate.plusDays(1);
-            
+
         }
 
         return new BookingAvailabilitiesResponse(slots);
