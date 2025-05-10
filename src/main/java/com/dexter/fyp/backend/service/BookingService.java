@@ -122,9 +122,15 @@ public class BookingService {
                 }
             }
 
-            slot.setAvailabilities(subAvailabilities);
-            slots.add(slot);
+            if(subAvailabilities.size() > 0){
+
+                slot.setAvailabilities(subAvailabilities);
+                slots.add(slot);
+
+            }
+
             refDate = refDate.plusDays(1);
+            
         }
 
         return new BookingAvailabilitiesResponse(slots);
