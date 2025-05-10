@@ -139,6 +139,9 @@ public class AuthService {
         medicalRecords.setHypertensionUpper(request.getMedicalRecords().getHypertensionUpper());
         medicalRecords.setLvef(request.getMedicalRecords().getLvef());
         medicalRecords.setNyhaClass(request.getMedicalRecords().getNyhaClass());
+        medicalRecords.setOxygenSaturation(request.getMedicalRecords().getOxygenSaturation());
+        medicalRecords.setPhysicalActivityBeforeEvent(request.getMedicalRecords().getPhysicalActivityBeforeEvent());
+        medicalRecords.setSmokingHistory(request.getMedicalRecords().getSmokingHistory());
 
         patientUser.setMedicalRecords(medicalRecords);
 

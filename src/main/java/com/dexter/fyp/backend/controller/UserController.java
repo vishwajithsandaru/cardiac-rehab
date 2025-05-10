@@ -13,12 +13,12 @@ import com.dexter.fyp.backend.dto.CurrentPlanAndProgressResponse;
 import com.dexter.fyp.backend.dto.TimeSeriesGraphDto;
 import com.dexter.fyp.backend.dto.UpdateProgressResponse;
 import com.dexter.fyp.backend.dto.UserPlanHistoryResponse;
+import com.dexter.fyp.backend.dto.UserUpdateRequest;
 import com.dexter.fyp.backend.entity.User;
 import com.dexter.fyp.backend.enums.Status;
 import com.dexter.fyp.backend.service.UserService;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
@@ -37,13 +37,10 @@ public class UserController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not fsound"));
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
-        User existingUser = userService.getUserById(id)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND, "User not found with ID " + id));
+    @PostMapping("/{id}/update")
+    public ResponseEntity<UserUpdateRequest> updateUser(@PathVariable Long id, @RequestBody UserUpdateRequest request) throws Exception {
 
-        User updatedUser = userService.updateUser(existingUser, user);
+        UserUpdateRequest updatedUser = userService.updateUser(id, request);
         return ResponseEntity.ok(updatedUser);
     }
 

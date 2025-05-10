@@ -3,6 +3,7 @@ package com.dexter.fyp.backend.repository;
 import com.dexter.fyp.backend.entity.Booking;
 import com.dexter.fyp.backend.entity.Doctor;
 import com.dexter.fyp.backend.entity.DoctorAvailability;
+import com.dexter.fyp.backend.entity.User;
 import com.dexter.fyp.backend.enums.Status;
 
 import java.time.LocalDate;

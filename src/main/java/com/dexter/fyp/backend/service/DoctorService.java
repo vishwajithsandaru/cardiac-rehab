@@ -59,27 +59,6 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
-    // UPDATE
-    public Doctor updateDoctor(Long id, Doctor updatedDoctor) {
-        validateDoctor(updatedDoctor);
-
-        return doctorRepository.findById(id).map(existing -> {
-            if (!existing.getEmail().equals(updatedDoctor.getEmail())
-                    && doctorRepository.existsByEmail(updatedDoctor.getEmail())) {
-                throw new IllegalArgumentException("Another doctor with this email already exists");
-            }
-
-            existing.setFirstName(updatedDoctor.getFirstName());
-            existing.setLastName(updatedDoctor.getLastName());
-            existing.setEmail(updatedDoctor.getEmail());
-            existing.setPhone(updatedDoctor.getPhone());
-            existing.setSpecialization(updatedDoctor.getSpecialization());
-            existing.setEmergencyContact(updatedDoctor.getEmergencyContact());
-
-            return doctorRepository.save(existing);
-        }).orElseThrow(() -> new RuntimeException("Doctor not found"));
-    }
-
     // FILTER - Specialization
     public List<Doctor> getDoctorsBySpecialization(String specialization) {
         return doctorRepository.findBySpecializationIgnoreCase(specialization);

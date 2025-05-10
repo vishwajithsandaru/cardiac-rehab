@@ -12,6 +12,7 @@ import com.dexter.fyp.backend.dto.CurrentPlanAndProgressResponse;
 import com.dexter.fyp.backend.dto.TimeSeriesGraphDto;
 import com.dexter.fyp.backend.dto.UpdateProgressResponse;
 import com.dexter.fyp.backend.dto.UserPlanHistoryResponse;
+import com.dexter.fyp.backend.dto.UserUpdateRequest;
 import com.dexter.fyp.backend.dto.WorkoutDto;
 import com.dexter.fyp.backend.entity.CustomPlanWorkout;
 import com.dexter.fyp.backend.entity.MedicalRecords;
@@ -67,6 +68,14 @@ public class UserService {
         if (planName != null) {
             Plan plan = planRepository.findByName(planName)
                     .orElseThrow(() -> new EntityNotFoundException("Plan not found with name: " + planName));
+
+            UserPlan oldUserPlan = userPlanRepository.findByUserAndIsCurrentTrue(user);
+
+            if(oldUserPlan != null){
+                oldUserPlan.setCurrent(false);
+                userPlanRepository.save(oldUserPlan);
+            }
+
             UserPlan userPlan = new UserPlan(null, planName, null, null, user, plan, true, null, LocalDateTime.now(), null);
             userPlanRepository.save(userPlan);
         }
@@ -169,35 +178,75 @@ public class UserService {
     }
 
     // Update user info
-    public User updateUser(User existingUser, User updatedData) {
-        if (updatedData.getFirstName() != null) {
-            existingUser.setFirstName(updatedData.getFirstName().trim());
-        }
-        if (updatedData.getLastName() != null) {
-            existingUser.setLastName(updatedData.getLastName().trim());
-        }
-        if (updatedData.getEmail() != null) {
-            String newEmail = updatedData.getEmail().trim();
-            if (!newEmail.equals(existingUser.getEmail()) &&
-                    userRepository.findByEmail(newEmail).isPresent()) {
-                throw new IllegalArgumentException("Another user with this email already exists");
-            }
-            existingUser.setEmail(newEmail);
-        }
-        if (updatedData.getPhoneNumber() != null) {
-            existingUser.setPhoneNumber(updatedData.getPhoneNumber().trim());
-        }
-        if (updatedData.getAge() != null) {
-            existingUser.setAge(updatedData.getAge());
-        }
-        if (updatedData.getHeight() != null) {
-            existingUser.setHeight(updatedData.getHeight());
-        }
-        if (updatedData.getWeight() != null) {
-            existingUser.setWeight(updatedData.getWeight());
+    public UserUpdateRequest updateUser(Long userId, UserUpdateRequest request) throws Exception {
+        
+        Optional<User> userOp = userRepository.findById(userId);
+        if(!userOp.isPresent()){
+            throw new Exception("User not found for the id");
         }
 
-        return userRepository.save(existingUser);
+        User user = userOp.get();
+
+        if(request.getEmail() != null)
+            user.setEmail(request.getEmail());
+        if(request.getFirstName() != null)
+            user.setFirstName(request.getFirstName());
+        if(request.getLastName() != null)
+            user.setLastName(request.getLastName());
+        if(request.getPhone() != null)
+            user.setPhoneNumber(request.getPhone());
+        if(request.getAge() != null)
+            user.setAge(request.getAge());
+        if(request.getHeight() != null)
+            user.setHeight(request.getHeight());
+        if(request.getWeight() != null)
+            user.setWeight(request.getWeight());
+        if(request.getDateOfBirth() != null)
+            user.setDateOfBirth(request.getDateOfBirth());
+        if(request.getGender() != null)
+            user.setGender(request.getGender());
+        if(request.getProfilePhotoUrl() != null)
+            user.setProfilePhotoUrl(request.getProfilePhotoUrl());
+
+        MedicalRecords medicalRecords = user.getMedicalRecords();
+
+        if(request.getMedicalRecords() != null){
+
+            if(request.getMedicalRecords().getLvef() != null)
+                medicalRecords.setLvef(request.getMedicalRecords().getLvef());
+            if(request.getMedicalRecords().getNyhaClass() != null)
+                medicalRecords.setNyhaClass(request.getMedicalRecords().getNyhaClass());
+            if(request.getMedicalRecords().getHypertensionUpper() != null)
+                medicalRecords.setHypertensionUpper(request.getMedicalRecords().getHypertensionUpper());
+            if(request.getMedicalRecords().getHypertensionLower() != null)
+                medicalRecords.setHypertensionLower(request.getMedicalRecords().getHypertensionLower());
+            if(request.getMedicalRecords().getCholesterolLevel() != null)
+                medicalRecords.setCholesterolLevel(request.getMedicalRecords().getCholesterolLevel());
+            if(request.getMedicalRecords().getOxygenSaturation() != null)
+                medicalRecords.setOxygenSaturation(request.getMedicalRecords().getOxygenSaturation());
+            if(request.getMedicalRecords().getSmokingHistory() != null)
+                medicalRecords.setSmokingHistory(request.getMedicalRecords().getSmokingHistory());
+            if(request.getMedicalRecords().getDiabetes() != null)
+                medicalRecords.setDiabetes(request.getMedicalRecords().getDiabetes());
+            if(request.getMedicalRecords().getExerciseTolerance() != null)
+                medicalRecords.setExerciseTolerance(request.getMedicalRecords().getExerciseTolerance());
+            if(request.getMedicalRecords().getCardiacEventType() != null)
+                medicalRecords.setCardiacEventType(request.getMedicalRecords().getCardiacEventType());
+            if(request.getMedicalRecords().getDateOfLastCardiacEvent() != null)
+                medicalRecords.setDateOfLastCardiacEvent(request.getMedicalRecords().getDateOfLastCardiacEvent());
+            if(request.getMedicalRecords().getAlcoholIntake() != null)
+                medicalRecords.setAlcoholIntake(request.getMedicalRecords().getAlcoholIntake());
+            if(request.getMedicalRecords().getPhysicalActivityBeforeEvent() != null)
+                medicalRecords.setPhysicalActivityBeforeEvent(request.getMedicalRecords().getPhysicalActivityBeforeEvent());
+            if(request.getMedicalRecords().getCardiacError() != null)
+                medicalRecords.setCardiacError(request.getMedicalRecords().getCardiacError());
+
+            assignPlanToClient(user);
+
+        }
+
+        userRepository.save(user);
+        return request;
     }
 
     private void validateUser(User user) {
