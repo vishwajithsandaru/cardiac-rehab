@@ -36,9 +36,11 @@ public class AuthService {
     private final JWTUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
     private final UserService userService;
+    private final DoctorService doctorService;
 
     public AuthService(AppUserRepository appUserRepository, PasswordEncoder encoder, JWTUtil jwtUtil,
-            AuthenticationManager authenticationManager, UserService userService) {
+            AuthenticationManager authenticationManager, UserService userService, DoctorService doctorService) {
+        this.doctorService = doctorService;
         this.appUserRepository = appUserRepository;
         this.encoder = encoder;
         this.jwtUtil = jwtUtil;
@@ -72,11 +74,13 @@ public class AuthService {
                     DoctorAvailability availability = new DoctorAvailability();
                     availability.setStartTime(availabilityDto.getStartTime());
                     availability.setEndTime(availabilityDto.getEndTime());
+                    availability.setDayOfWeek(availabilityDto.getDayOfWeek());
                     availability.setDoctor(doctor);
                     return availability;
                 })
                 .toList();
-
+        
+        doctorService.validateAvailability(doctorAvailabilities);
         doctor.setAvailabilities(doctorAvailabilities);
 
         AppUser appUser = doctor;
@@ -106,6 +110,11 @@ public class AuthService {
         patientUser.setRole(Role.PATIENT);
         patientUser.setFirstName(request.getFirstName());
         patientUser.setLastName(request.getLastName());
+        patientUser.setAge(request.getAge());
+        patientUser.setHeight(request.getHeight());
+        patientUser.setWeight(request.getWeight());
+
+
         
         if(request.getMedicalRecords() == null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Medical records are required");

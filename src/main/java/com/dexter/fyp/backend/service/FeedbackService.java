@@ -7,15 +7,12 @@ import com.dexter.fyp.backend.dto.FeedbackDto;
 import com.dexter.fyp.backend.dto.FeedbackResponseDto;
 import com.dexter.fyp.backend.dto.GeneralResponse;
 import com.dexter.fyp.backend.entity.Feedback;
-import com.dexter.fyp.backend.entity.User;
 import com.dexter.fyp.backend.entity.UserPlan;
 import com.dexter.fyp.backend.enums.Status;
 import com.dexter.fyp.backend.repository.FeedbackRepository;
 import com.dexter.fyp.backend.repository.UserPlanRepository;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FeedbackService {
@@ -79,23 +76,8 @@ public class FeedbackService {
         return response;
         
     }
+   
 
-    // Get feedback by ID
-    public Feedback getFeedbackById(Long id) throws Exception {
-        return feedbackRepository.findById(id)
-                .orElseThrow(() -> new Exception("Feedback not found with id: " + id));
-    }
-
-    // Delete feedback
-    public void deleteFeedback(Long id) throws Exception {
-        if (!feedbackRepository.existsById(id)) {
-            throw new Exception("Feedback not found with id: " + id);
-        }
-        feedbackRepository.deleteById(id);
-    }
-    
-
-    // ========= Private Helpers =========
 
     private void validateFeedback(FeedbackDto feedback) {
         if (feedback.getOverallRating() < 1 || feedback.getOverallRating() > 5) {
@@ -104,6 +86,5 @@ public class FeedbackService {
         if (feedback.getFeedback() == null || feedback.getFeedback().isBlank()) {
             throw new IllegalArgumentException("Comment must not be empty");
         }
-        // Optional: ensure user/doctor exist or not null if your design requires it
     }
 }

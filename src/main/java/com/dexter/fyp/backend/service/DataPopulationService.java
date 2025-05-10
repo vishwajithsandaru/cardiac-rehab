@@ -1,10 +1,5 @@
-package com.dexter.fyp.backend.service;
-
-import com.dexter.fyp.backend.entity.Doctor;
-import com.dexter.fyp.backend.entity.DoctorAvailability;
-import com.dexter.fyp.backend.entity.MedicalRecords;
+package com.dexter.fyp.backend.service; 
 import com.dexter.fyp.backend.entity.Plan;
-import com.dexter.fyp.backend.entity.User;
 import com.dexter.fyp.backend.entity.Workout;
 import com.dexter.fyp.backend.repository.BookingRepository;
 import com.dexter.fyp.backend.repository.DoctorRepository;
@@ -13,17 +8,8 @@ import com.dexter.fyp.backend.repository.MedicalRecordsRepository;
 import com.dexter.fyp.backend.repository.PlanRepository;
 import com.dexter.fyp.backend.repository.UserRepository;
 import com.dexter.fyp.backend.repository.WorkoutRepository;
-import com.dexter.fyp.backend.entity.Booking;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -38,15 +24,12 @@ public class DataPopulationService {
     private final MedicalRecordsRepository medicalRecordsRepository;
 
     private final UserService userService;
-    // PlanService and BookingService are not directly used here after refactoring User creation
-    // private final PlanService planService;
-    // private final BookingService bookingService;
 
     public DataPopulationService(UserRepository userRepository, DoctorRepository doctorRepository,
                                  PlanRepository planRepository, WorkoutRepository workoutRepository,
                                  BookingRepository bookingRepository, FeedbackRepository feedbackRepository,
                                  MedicalRecordsRepository medicalRecordsRepository,
-                                 UserService userService /*, PlanService planService, BookingService bookingService */) {
+                                 UserService userService) {
         this.userRepository = userRepository;
         this.doctorRepository = doctorRepository;
         this.planRepository = planRepository;
@@ -55,124 +38,20 @@ public class DataPopulationService {
         this.feedbackRepository = feedbackRepository;
         this.medicalRecordsRepository = medicalRecordsRepository;
         this.userService = userService;
-        // this.planService = planService; // Not strictly needed if UserService handles plan assignment
-        // this.bookingService = bookingService; // Not strictly needed if not creating bookings here directly
     }
 
-    // @Transactional
-    // public void populateData() {
-    //     // Clear existing data first
-    //     clearAllData();
-
-    //     // 1. Create Workouts with scheduled dates
-    //     List<Workout> createdWorkouts = createSampleWorkouts();
-
-    //     // 3. Create Medical Records
-    //     List<MedicalRecords> createdMedicalRecords = createSampleMedicalRecords();
-    //     // Save Medical Records explicitly BEFORE creating users that reference them
-    //     medicalRecordsRepository.saveAll(createdMedicalRecords);
-
-    //     // 4. Create Users and assign Plans (UserService handles assignment)
-    //     createSampleUsers(createdMedicalRecords); // userService.createUser is called within this method
-
-
-    //     // 6. Create Bookings
-    //     createSampleBookings(userRepository.findAll(), doctorRepository.findAll());
-
-    //     // 7. Create Feedback
-    //     createSampleFeedback(); // Feedback doesn't seem linked to users in the current entity
-    // }
+ 
 
     @Transactional
     public void clearAllData() {
-        // Clear data from tables, respecting foreign key constraints
         bookingRepository.deleteAllInBatch();
-        feedbackRepository.deleteAllInBatch(); // Clear feedback first
-        // Remove user associations before deleting users if needed (e.g., clearing planHistory join table)
-        // Or rely on Cascade settings. Clear users which might cascade to MedicalRecords.
+        feedbackRepository.deleteAllInBatch();
         userRepository.deleteAllInBatch();
-        doctorRepository.deleteAllInBatch(); // Clear doctors (and their availability via cascade)
-        planRepository.deleteAllInBatch(); // Clear plans (and plan_workout join table via cascade)
-        workoutRepository.deleteAllInBatch(); // Clear remaining workouts
-        medicalRecordsRepository.deleteAllInBatch(); // Clear any remaining medical records explicitly
+        doctorRepository.deleteAllInBatch();
+        planRepository.deleteAllInBatch();
+        workoutRepository.deleteAllInBatch(); 
+        medicalRecordsRepository.deleteAllInBatch();
     }
-
-
-    // Helper to find workout by name from the created list
-    private Workout findWorkoutByName(List<Workout> workouts, String name) {
-        return workouts.stream()
-                .filter(workout -> workout.getName().equals(name))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Workout not found during plan assignment: " + name));
-    }
-
-    private List<MedicalRecords> createSampleMedicalRecords() {
-        List<MedicalRecords> medicalRecords = new ArrayList<>();
-
-        // Low Risk - Ensure all relevant fields have values
-        medicalRecords.add(new MedicalRecords(
-                null, 55, "Class I", 120, 80, 150.0, 98, "Never Smoked", 5.5, 8.0,
-                "None", null, "None", "Active", new ArrayList<>(Collections.singletonList("Occasional Palpitations"))
-        ));
-
-        // Moderate Risk - Matching the JSON example
-        medicalRecords.add(new MedicalRecords(
-                null, 45, "Class II", 145, 95, 180.0, 93, "Former Smoker", 7.5, 6.0,
-                "Myocardial Infarction", LocalDate.now().minusYears(2), "Occasional", "Moderate",
-                new ArrayList<>(Collections.singletonList("Class II Heart Failure"))
-        ));
-
-        // High Risk - Ensure all relevant fields have values
-        medicalRecords.add(new MedicalRecords(
-                null, 35, "Class III", 165, 105, 220.0, 88, "Current Smoker", 9.0, 4.0,
-                "CABG", LocalDate.now().minusMonths(6), "Heavy", "Light",
-                new ArrayList<>(Arrays.asList("Angina", "Class IV Heart Failure"))
-        ));
-
-        // Minimal/Default - Provide some defaults for fields that might otherwise be null
-        medicalRecords.add(new MedicalRecords(
-                null, 60, "Class I", 110, 70, 120.0, 99, "Never Smoked", 5.0, 9.0,
-                "None", null, "None", "Sedentary", new ArrayList<>()
-        ));
-
-        // Save medical records BEFORE returning them
-        return medicalRecordsRepository.saveAll(medicalRecords);
-    }
-
-
-    private void createSampleBookings(List<User> users, List<Doctor> doctors) {
-        if (users.isEmpty() || doctors.isEmpty()) {
-            System.out.println("Not enough users or doctors to create sample bookings.");
-            return;
-        }
-
-        // Use the already fetched/created users and doctors
-        User user1 = users.stream().filter(u -> "alice.smith@example.com".equals(u.getEmail())).findFirst().orElse(null);
-        User user2 = users.stream().filter(u -> "bob.johnson@example.com".equals(u.getEmail())).findFirst().orElse(null);
-        Doctor doctor1 = doctors.stream().filter(d -> "emma.white@example.com".equals(d.getEmail())).findFirst().orElse(null);
-        Doctor doctor2 = doctors.stream().filter(d -> "chris.blue@example.com".equals(d.getEmail())).findFirst().orElse(null);
-
-        if (user1 == null || user2 == null || doctor1 == null || doctor2 == null) {
-            System.out.println("Could not find specific sample users or doctors to create bookings.");
-            return;
-        }
-
-        List<Booking> bookings = new ArrayList<>();
-        LocalDateTime now = LocalDateTime.now();
-
-        // Future Confirmed, Unpaid
-        bookings.add(new Booking(null, user1, doctor1, new Booking.TimeSlot(now.plusDays(5).withHour(10).withMinute(0), now.plusDays(5).withHour(10).withMinute(30)), "Follow-up appointment", 50.0f, 1, false));
-        // Future Pending, Unpaid
-        bookings.add(new Booking(null, user2, doctor2, new Booking.TimeSlot(now.plusDays(7).withHour(14).withMinute(0), now.plusDays(7).withHour(14).withMinute(45)), "Initial consultation", 75.0f, 0, false));
-        // Past Completed, Paid
-        bookings.add(new Booking(null, user1, doctor2, new Booking.TimeSlot(now.minusDays(2).withHour(11).withMinute(0), now.minusDays(2).withHour(11).withMinute(30)), "Previous check-up", 60.0f, 1, true)); // Assuming status 1 means completed if in past
-        // Future Cancelled
-        bookings.add(new Booking(null, user2, doctor1, new Booking.TimeSlot(now.plusDays(3).withHour(16).withMinute(0), now.plusDays(3).withMinute(30)), "Consultation", 50.0f, -1, false)); // Status -1 for cancelled
-
-        bookingRepository.saveAll(bookings);
-    }
-
-    
 
     public void populateWorkoutsAndPlans(){
         

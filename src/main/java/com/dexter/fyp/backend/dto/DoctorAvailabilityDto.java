@@ -1,5 +1,6 @@
 package com.dexter.fyp.backend.dto;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 import lombok.Data;
@@ -7,7 +8,7 @@ import lombok.Data;
 @Data
 public class DoctorAvailabilityDto {
  
-    private String dayOfWeek;
+    private DayOfWeek dayOfWeek;
 
     private LocalTime startTime;
 

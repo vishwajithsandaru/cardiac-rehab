@@ -1,15 +1,16 @@
 package com.dexter.fyp.backend.entity;
-
-import java.time.LocalDateTime;
-
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
+import java.time.LocalDate;
+import com.dexter.fyp.backend.enums.Status;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,33 +25,32 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Many bookings can be made by one user
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // Many bookings can be made with one doctor
     @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
 
-    @Embedded
-    private TimeSlot timeSlot;
+    @OneToOne
+    @JoinColumn(name = "doctor_availability_id", nullable = false)
+    private DoctorAvailability doctorAvailability;
 
-    @Embeddable
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class TimeSlot {
-        private LocalDateTime startTime;
-        private LocalDateTime endTime;
-    }
+    @Column(name = "booking_date", nullable = false)
+    private LocalDate bookingDate;
 
+    @Column(name = "remark")
     private  String Remark;
+
+    @Column(name="price")
     private float price;
 
-    private int status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
 
+    @Column(name = "is_paid")
     private  boolean isPaid;
     
 }

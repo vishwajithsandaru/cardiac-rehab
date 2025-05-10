@@ -50,20 +50,6 @@ public class DoctorService {
         this.workoutRepository = workoutRepository;
     }
 
-    // CREATE
-    public Doctor createDoctor(Doctor doctor) {
-        validateDoctor(doctor);
-        if (doctorRepository.existsByEmail(doctor.getEmail())) {
-            throw new IllegalArgumentException("A doctor with this email already exists");
-        }
-        List<DoctorAvailability> availabilities = doctor.getAvailabilities();
-        for(DoctorAvailability a : availabilities){
-            a.setDoctor(doctor);
-        }
-        return doctorRepository.save(doctor);
-    }
-
-    // READ - By ID
     public Optional<Doctor> getDoctorById(Long id) {
         return doctorRepository.findById(id);
     }
@@ -94,14 +80,6 @@ public class DoctorService {
         }).orElseThrow(() -> new RuntimeException("Doctor not found"));
     }
 
-    // DELETE
-    public void deleteDoctor(Long id) {
-        if (!doctorRepository.existsById(id)) {
-            throw new RuntimeException("Doctor not found");
-        }
-        doctorRepository.deleteById(id);
-    }
-
     // FILTER - Specialization
     public List<Doctor> getDoctorsBySpecialization(String specialization) {
         return doctorRepository.findBySpecializationIgnoreCase(specialization);
@@ -110,28 +88,6 @@ public class DoctorService {
     // SEARCH - Name
     public List<Doctor> searchDoctorsByName(String keyword) {
         return doctorRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(keyword, keyword);
-    }
-
-    // Add or Replace Availability
-    public Doctor updateAvailability(Long doctorId, List<DoctorAvailability> newAvailability) {
-        validateAvailability(newAvailability);
-
-        return doctorRepository.findById(doctorId).map(doctor -> {
-            doctor.getAvailabilities().clear();
-            doctor.getAvailabilities().addAll(newAvailability);
-            return doctorRepository.save(doctor);
-        }).orElseThrow(() -> new RuntimeException("Doctor not found"));
-    }
-
-    // Get Available Doctors in Time Range (Simple Time-Based Filter)
-    public List<Doctor> getAvailableDoctors(LocalTime start, LocalTime end) {
-        return doctorRepository.findAll().stream()
-                .filter(doctor -> doctor.getAvailabilities().stream()
-                        .anyMatch(avail ->
-                                avail.getStartTime().isBefore(end) &&
-                                        avail.getEndTime().isAfter(start)
-                        ))
-                .collect(Collectors.toList());
     }
 
     // ========== Private Helpers ==========
@@ -151,7 +107,7 @@ public class DoctorService {
         }
     }
 
-    private void validateAvailability(List<DoctorAvailability> availabilities) {
+    public void validateAvailability(List<DoctorAvailability> availabilities) {
         for (DoctorAvailability a : availabilities) {
             if (a.getStartTime() == null || a.getEndTime() == null) {
                 throw new IllegalArgumentException("Start time and end time must be provided for each availability slot");

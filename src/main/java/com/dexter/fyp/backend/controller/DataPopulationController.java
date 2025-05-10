@@ -18,25 +18,12 @@ public class DataPopulationController {
         this.dataPopulationService = dataPopulationService;
     }
 
-    // @GetMapping("/populateData")
-    // public ResponseEntity<String> populateDatabase() {
-    //     try {
-    //         dataPopulationService.populateData();
-    //         return ResponseEntity.ok("Database populated successfully!");
-    //     } catch (Exception e) {
-    //         // Log the exception in a real application
-    //         e.printStackTrace();
-    //         return ResponseEntity.internalServerError().body("Error populating database: " + e.getMessage());
-    //     }
-    // }
-
     @PostMapping("/populateWorkouts")
     public ResponseEntity<String> populateWorkouts() {
         try {
             dataPopulationService.populateWorkoutsAndPlans();
             return ResponseEntity.ok("Database populated successfully!");
         } catch (Exception e) {
-            // Log the exception in a real application
             e.printStackTrace();
             return ResponseEntity.internalServerError().body("Error populating database: " + e.getMessage());
         }
@@ -48,7 +35,6 @@ public class DataPopulationController {
             dataPopulationService.clearAllData();
             return ResponseEntity.ok("Database cleared successfully!");
         } catch (Exception e) {
-            // Log the exception in a real application
             e.printStackTrace();
             return ResponseEntity.internalServerError().body("Error clearing database: " + e.getMessage());
         }

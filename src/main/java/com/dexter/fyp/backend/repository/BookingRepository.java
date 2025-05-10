@@ -1,18 +1,21 @@
 package com.dexter.fyp.backend.repository;
 
 import com.dexter.fyp.backend.entity.Booking;
+import com.dexter.fyp.backend.entity.Doctor;
+import com.dexter.fyp.backend.entity.DoctorAvailability;
+import com.dexter.fyp.backend.enums.Status;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
-    List<Booking> findByDoctorId(Long doctorId);
-    List<Booking> findByUserId(Long userId);
-    List<Booking> findByTimeSlotStartTimeBetween(LocalDateTime start, LocalDateTime end);
-    List<Booking> findByUserIdAndIsPaidFalse(Long userId);
-    List<Booking> findByStatus(int status);
+    Optional<Booking> findByDoctorAvailabilityAndBookingDateAndStatus(DoctorAvailability doctorAvailability, LocalDate bookingDate, Status status);
+    List<Booking> findByDoctorAndBookingDateBetween(Doctor doctor, LocalDate startDate, LocalDate endDate);
+    List<Booking> findByDoctorAndBookingDate(Doctor doctor, LocalDate bookingDate);
 }

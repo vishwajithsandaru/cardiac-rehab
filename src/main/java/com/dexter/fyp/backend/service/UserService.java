@@ -51,36 +51,6 @@ public class UserService {
         this.userPlanProgressRepository = userPlanProgressRepository;
     }
 
-    // Get all users
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    // Create user and assign plan
-    @Transactional
-    public User createUser(@Valid User user) {
-        validateUser(user);
-
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new IllegalArgumentException("A user with this email already exists");
-        }
-
-        // First save: This makes the user entity managed by JPA
-        User savedUser = userRepository.save(user);
-
-        // Modifications to the managed 'savedUser' object within the same transaction
-        assignPlanToClient(savedUser);
-        
-
-        // REMOVE OR COMMENT OUT THIS LINE:
-        // This second save triggers a merge operation which likely causes the exception
-        // Changes made above should be automatically persisted when the transaction commits.
-        // return userRepository.save(savedUser);
-
-        // Return the user object (changes will be saved on transaction commit)
-        return savedUser;
-    }
-
     // Assign plan based on medical record risk level (priority: 1 > 2 > 3)
     public void assignPlanToClient(User user) {
         if (user.getMedicalRecords() == null) return;
@@ -198,16 +168,6 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    // Delete user by ID
-    public boolean deleteUserById(Long id) {
-        return userRepository.findById(id)
-                .map(user -> {
-                    userRepository.delete(user);
-                    return true;
-                })
-                .orElse(false);
-    }
-
     // Update user info
     public User updateUser(User existingUser, User updatedData) {
         if (updatedData.getFirstName() != null) {
@@ -240,12 +200,6 @@ public class UserService {
         return userRepository.save(existingUser);
     }
 
-    // Get user by email
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email.trim());
-    }
-
-    // Field validation
     private void validateUser(User user) {
         if (user.getFirstName() == null || user.getFirstName().isBlank()) {
             throw new IllegalArgumentException("First name is required");

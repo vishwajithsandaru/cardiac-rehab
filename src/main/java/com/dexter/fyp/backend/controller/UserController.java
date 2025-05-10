@@ -30,26 +30,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/getAll")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         return userService.getUserById(id)
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not fsound"));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
-        boolean deleted = userService.deleteUserById(id);
-        if (deleted) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found with ID " + id);
-        }
     }
 
     @PatchMapping("/{id}")

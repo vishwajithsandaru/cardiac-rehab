@@ -6,11 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import com.dexter.fyp.backend.dto.FeedbackDto;
 import com.dexter.fyp.backend.dto.FeedbackResponseDto;
 import com.dexter.fyp.backend.dto.GeneralResponse;
-import com.dexter.fyp.backend.entity.Feedback;
 import com.dexter.fyp.backend.enums.Status;
 import com.dexter.fyp.backend.service.FeedbackService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/feedback")
@@ -46,13 +43,6 @@ public class FeedbackController {
             response.setMessage(e.getMessage());
             return ResponseEntity.badRequest().body(response);
         }
-    }
-
-    // Delete feedback
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteFeedback(@PathVariable Long id) throws Exception {
-        feedbackService.deleteFeedback(id);
-        return ResponseEntity.noContent().build();
     }
 
 }

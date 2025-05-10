@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,7 +19,8 @@ public class DoctorAvailability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String dayOfWeek; // You can convert this to DayOfWeek enum later
+    @Enumerated(EnumType.STRING)
+    private DayOfWeek dayOfWeek;
 
     private LocalTime startTime;
 
