@@ -1,9 +1,7 @@
 package com.dexter.fyp.backend.service;
-
-
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.dexter.fyp.backend.dto.WorkoutDto;
 import com.dexter.fyp.backend.entity.Workout;
 import com.dexter.fyp.backend.repository.WorkoutRepository;
 
@@ -30,31 +28,26 @@ public class WorkoutService {
     }
 
     // Add workout with validation
-    public Workout addWorkout(Workout workout) {
-        validateWorkout(workout);
-        return workoutRepository.save(workout);
-    }
+    public WorkoutDto addWorkout(WorkoutDto request) {
 
-    // Update workout with validation + existence check
-    public Workout updateWorkout(Workout workout) {
-        validateWorkout(workout);
-        Workout existingWorkout = workoutRepository.findById(workout.getId())
-                .orElseThrow(() -> new EntityNotFoundException("Workout not found with ID: " + workout.getId()));
+        Workout workout = new Workout();
+        workout.setName(request.getName());
+        workout.setDescription(request.getDescription());
+        workout.setDifficulty(request.getDifficulty());
+        workout.setDuration(request.getDuration());
+        workout.setImageUrl(request.getImageUrl());
+        workout.setReps(request.getReps());
+        workout.setSets(request.getSets());
+        workout.setAlternateExerciseId(request.getAlternateExerciseId());
+        workout.setPatientNote(request.getPatientNote());
+        workout.setVideoUrl(request.getVideoUrl());
 
-        existingWorkout.setName(workout.getName());
-        existingWorkout.setDuration(workout.getDuration());
+        workout = workoutRepository.save(workout);
 
-        return workoutRepository.save(existingWorkout);
-    }
+        request.setId(workout.getId());
 
-    // Delete workout by ID
-    public boolean deleteWorkoutById(Long id) {
-        if (workoutRepository.existsById(id)) {
-            workoutRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
-        }
+        return request;
+
     }
 
     // Search workout by name (partial, case-insensitive)
@@ -62,14 +55,4 @@ public class WorkoutService {
         return workoutRepository.findByNameContainingIgnoreCase(name);
     }
 
-    // ========== Private Validation ==========
-
-    private void validateWorkout(Workout workout) {
-        if (workout.getName() == null || workout.getName().isBlank()) {
-            throw new IllegalArgumentException("Workout name is required");
-        }
-        if (workout.getDuration() <= 0) {
-            throw new IllegalArgumentException("Workout duration must be greater than 0");
-        }
-    }
 }

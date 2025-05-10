@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.dexter.fyp.backend.dto.WorkoutDto;
 import com.dexter.fyp.backend.entity.Workout;
 import com.dexter.fyp.backend.service.WorkoutService;
 
@@ -31,20 +32,8 @@ public class WorkoutController {
     }
 
     @PostMapping
-    public ResponseEntity<Workout> createWorkout(@RequestBody Workout workout) {
+    public ResponseEntity<WorkoutDto> createWorkout(@RequestBody WorkoutDto workout) {
         return ResponseEntity.ok(workoutService.addWorkout(workout));
-    }
-
-    @PutMapping
-    public ResponseEntity<Workout> updateWorkout(@RequestBody Workout workout) {
-        return ResponseEntity.ok(workoutService.updateWorkout(workout));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteWorkout(@PathVariable Long id) {
-        boolean deleted = workoutService.deleteWorkoutById(id);
-        return deleted ? ResponseEntity.noContent().build()
-                : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/search")
